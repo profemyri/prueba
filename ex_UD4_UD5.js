@@ -1,57 +1,48 @@
-document.addEventListener("DOMContentLoaded", function() {
-  const form = document.getElementById("pedidoForm");
-  const instrucciones = document.getElementById("instrucciones");
-  const contador = document.getElementById("contador");
-  const totalPedido = document.getElementById("totalPedido");
-  const botonOscuro = document.getElementById("modoOscuro");
-  const botonEnviar = document.getElementById("enviar");
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("pedidoForm");
+    const totalSpan = document.getElementById("precioTotal");
+    const instrucciones = document.getElementById("instrucciones");
+    const contador = document.getElementById("contador");
+    const btnOscuro = document.getElementById("modoOscuro");
 
-  // Cambio modo oscuro y texto botón
-  botonOscuro.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    botonOscuro.innerText = document.body.classList.contains("dark-mode") ? "Modo Claro" : "Modo Oscuro";
-  });
+    btnOscuro.onclick = () => {
+        document.body.classList.toggle("dark-mode");
+        btnOscuro.innerText = document.body.classList.contains("dark-mode") ? "Modo Claro" : "Modo Oscuro";
+    };
 
-  // Contador caracteres
-  instrucciones.addEventListener("input", () => {
-    contador.innerText = `${instrucciones.value.length} / 200 caracteres`;
-  });
+    instrucciones.oninput = () => {
+        contador.textContent = `${instrucciones.value.length}/200 caracteres`;
+    };
 
-  // Cálculo total
-  const calcularTotal = () => {
-    let precioBurger = parseInt(document.getElementById("tipoBurger").value);
-    let ingredientes = document.querySelectorAll(".ingrediente:checked").length;
-    let cantidad = parseInt(document.getElementById("cantidad").value);
-    let total = (precioBurger + ingredientes) * cantidad;
-    totalPedido.textContent = total + "€";
-    return total;
-  };
+    const calcularTotal = () => {
+        let precio = Number(document.getElementById("tipoBurger").value);
+        let extras = document.querySelectorAll(".extra:checked").length;
+        if (extras < 2) extras = 2;
+        let cantidad = Number(document.getElementById("cantidad").value);
+        let total = (precio + extras) * cantidad;
+        totalSpan.textContent = `${total}€`;
+        return total;
+    };
 
-  document.querySelectorAll("input, select").forEach(el => {
-    el.addEventListener("change", calcularTotal);
-  });
+    document.querySelectorAll("input, select").forEach(el => {
+        el.onchange = calcularTotal;
+    });
 
-  // Validación formulario
-  form.addEventListener("submit", (event) => {
-    let nombre = document.getElementById("nombre").value.trim();
-    let direccion = document.getElementById("direccion").value.trim();
-    let telefono = document.getElementById("telefono").value.trim();
-    let email = document.getElementById("email").value.trim();
+    form.onsubmit = (e) => {
+        const nombre = document.getElementById("nombre").value.trim();
+        const direccion = document.getElementById("direccion").value.trim();
+        const telefono = document.getElementById("telefono").value.trim();
+        const email = document.getElementById("email").value.trim();
 
-    if(nombre === "" || direccion.length < 15 || !/^\d{9,}$/.test(telefono) || !email.includes("@")) {
-      alert("⚠️ Revisa el formulario: algunos campos son incorrectos o están incompletos.");
-      event.preventDefault();
-      botonEnviar.disabled = true;
-    } else {
-      botonEnviar.disabled = false;
-      if(confirm("🍔 ¿Quieres confirmar y enviar tu pedido ahora?")){
-        alert(`🍔 ¡Gracias por tu pedido, ${nombre}! Pronto lo tendrás listo. 😊`);
-      } else {
-        event.preventDefault();
-      }
-    }
-  });
+        if(nombre === "" || direccion.length < 20 || !/^\d{9,}$/.test(telefono) || !email.includes("@")) {
+            alert("⚠️ Hay errores en los campos obligatorios, revísalos.");
+            e.preventDefault();
+        } else if(confirm("🍔 ¿Quieres confirmar y enviar tu pedido ahora?")) {
+            alert(`🍔 ¡Gracias por tu pedido, ${nombre}! Pronto lo tendrás listo.`);
+        } else {
+            e.preventDefault();
+        }
+    };
 
-  // Inicializa cálculo
-  calcularTotal();
+    calcularTotal();
 });
