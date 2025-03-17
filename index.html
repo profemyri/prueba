@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedido de Hamburguesas</title>
+    <link rel="stylesheet" href="pr_burger.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Realiza tu Pedido 🍔</h1>
+    <img src="hamburguesa.jpg" alt="Hamburguesa deliciosa" class="imagen">
+    
+    <form id="pedidoForm">
+      <fieldset>
+        <legend>Datos del Cliente</legend>
+        <input type="text" placeholder="Nombre" required>
+        <input type="text" placeholder="Apellidos" required>
+        <input type="text" placeholder="Dirección (mínimo 30 caracteres)" required>
+        <input type="tel" placeholder="Teléfono">
+        <input type="email" placeholder="Email" required>
+
+        <label>Tipo:</label>
+        <select>
+          <option>Clásica</option>
+          <option>Vegetariana</option>
+          <option>Doble carne</option>
+        </select>
+
+        <label>Extras (elige al menos 2):</label>
+        <input type="checkbox"> Queso
+        <input type="checkbox"> Bacon
+        <input type="checkbox"> Huevo
+        <input type="checkbox"> Jalapeños
+        <input type="checkbox"> Patatas
+        <input type="checkbox"> Refresco limón
+        <input type="checkbox"> Refresco naranja
+
+        <label>Cantidad:</label>
+        <select>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+
+        <label>Método de Pago:</label>
+        <select>
+          <option>Efectivo</option>
+          <option>Tarjeta</option>
+          <option>PayPal</option>
+        </select>
+
+        <textarea placeholder="Escribe tus preferencias..."></textarea>
+
+        <button id="enviar">Enviar Pedido</button>
+    </form>
+  </div>
+
+<script src="pr_burger.js"></script>
+</body>
+</html>
