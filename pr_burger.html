@@ -3,57 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedido de Hamburguesas</title>
+    <title>Formulario pedido hamburguesa</title>
     <link rel="stylesheet" href="pr_burger.css">
 </head>
 <body>
-    <div class="container">
+    <div class="contenedor-formulario">
         <h1>Realiza tu Pedido</h1>
-        <img src="cheese-burger.png" alt="Hamburguesa" class="burger-img">
+        <img src="burger.jpg" alt="Hamburguesa deliciosa">
+        
         <form id="pedido-form">
-            <fieldset>
-                <legend>Datos del Cliente</legend>
-                <label>Nombre: <input type="text" id="nombre" required></label>
-                <label>Apellidos: <input type="text" id="apellidos"></label>
-                <label>Dirección: <input type="text" id="direccion" minlength="30" required></label>
-                <label>Teléfono: <input type="tel" id="telefono" pattern="[0-9]{9,}" required></label>
-                <label>Email: <input type="email" id="email" required></label>
-            </fieldset>
-            <fieldset>
-                <legend>Pedido de Hamburguesas</legend>
-                <label>Tipo:
-                    <select id="tipo">
-                        <option value="clasica">Clásica</option>
-                        <option value="doble">Doble</option>
-                        <option value="vegetariana">Vegetariana</option>
-                    </select>
-                </label>
-                <label>Extras (elige al menos 2):</label>
-                <div class="extras">
-                    <input type="checkbox" value="queso"> Queso
-                    <input type="checkbox" value="bacon"> Bacon
-                    <input type="checkbox" value="huevo"> Huevo
-                    <input type="checkbox" value="jalapenos"> Jalapeños
-                    <input type="checkbox" value="patatas"> Patatas 
-                    <input type="checkbox" value="refresco"> Refresco 
-                </div>
-                <label>Cantidad:
-                    <input type="number" id="cantidad" min="1" max="5" value="1">
-                </label>
-                <label>Método de Pago:
-                    <select id="pago">
-                        <option value="efectivo">Efectivo</option>
-                        <option value="tarjeta">Tarjeta</option>
-                        <option value="paypal">PayPal</option>
-                    </select>
-                </label>
-                <label>Instrucciones Adicionales:
-                    <textarea id="instrucciones" placeholder="Escribe tus preferencias..."></textarea>
-                </label>
-            </fieldset>
+            <h2>Datos de entrega</h2>
+            <input type="text" placeholder="Nombre" required><br>
+            <input type="text" placeholder="Apellidos" required><br>
+            <input type="text" placeholder="Dirección" required minlength="30"><br>
+            <input type="tel" placeholder="Teléfono (9 dígitos)" required><br>
+            <input type="email" placeholder="Email" required><br>
+            
+            <h2>Pedido de Hamburguesas</h2>
+            <label><input type="radio" name="tipo" value="clasica" required> Clásica</label><br>
+            <label><input type="radio" name="tipo" value="doble"> Doble</label><br>
+            <label><input type="radio" name="tipo" value="vegana"> Vegana</label><br>
+
+            <h3>Ingredientes (elige varios)</h2>
+            <label><input type="checkbox" name="ingredientes" value="bacon"> Bacon</label>
+            <label><input type="checkbox" name="ingrediente" value="huevo"> Huevo</label>
+            <label><input type="checkbox" name="ingrediente" value="jalapenos"> Jalapeños</label><br>
+            
+            <label for="cantidad">Cantidad:</label>
+            <select id="cantidad">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select><br>
+            
+            <label for="pago">Método de pago:</label>
+            <select id="pago" required>
+                <option>Efectivo</option>
+                <option>Tarjeta</option>
+                <option>PayPal</option>
+            </select><br>
+            
+            <textarea placeholder="Escribe tus preferencias..." id="instrucciones"></textarea><br>
+            
             <button id="enviar">Enviar Pedido</button>
         </form>
-    </div>
+    </form>
+
+    </form>
+
     <script src="pr_burger.js"></script>
 </body>
 </html>
