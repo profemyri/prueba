@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de pedido de hamburguesa</title>
+  <link rel="stylesheet" href="ex_UD4_UD5.css">
+</head>
+<body>
+  <h1>Realiza tu pedido 🍔</h1>
+  <img src="cheese-burger.png" alt="Hamburguesa">
+  
+  <form id="pedidoForm">
+    <h2>Datos personales</h2>
+    <input type="text" id="nombre" placeholder="Nombre" required>
+    <input type="text" id="apellidos" placeholder="Apellidos">
+    <input type="text" id="direccion" placeholder="Dirección" required>
+    <input type="tel" id="telefono" placeholder="Teléfono" required>
+    <input type="email" id="email" placeholder="Email" required>
+    
+    <h2>Detalles del pedido</h2>
+    <select id="tipoBurger">
+      <option value="5">Clásica</option>
+      <option value="6">Vegetariana</option>
+      <option value="7">BBQ</option>
+      <option value="6">Pollo</option>
+      <option value="8">Especial</option>
+    </select>
+    
+    <h3>Ingredientes extra (1€ cada uno)</h3>
+    <input type="checkbox" class="ingrediente" value="1">Queso<br>
+    <input type="checkbox" class="ingrediente" value="1">Bacon<br>
+    <input type="checkbox" class="ingrediente" value="1">Huevo<br>
+    <input type="checkbox" class="ingrediente" value="1">Jalapeños<br>
+    <input type="checkbox" class="ingrediente" value="1">Patatas<br>
+
+    <h3>Bebida (gratis)</h3>
+    <input type="checkbox">Refresco limón<br>
+    <input type="checkbox">Refresco naranja<br>
+
+    <h3>Cantidad</h3>
+    <select id="cantidad">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+
+    <textarea id="instrucciones" placeholder="Escribe tus preferencias..."></textarea>
+    <p id="contador">0 / 200 caracteres</p>
+
+    <p>Total del pedido: <span id="totalPedido">0€</span></p>
+    
+    <button type="submit" id="enviar">Enviar Pedido</button>
+    <button type="button" id="modoOscuro">Modo Oscuro</button>
+  </form>
+
+  <script src="ex_UD4_UD5.js"></script>
+</body>
+</html>
