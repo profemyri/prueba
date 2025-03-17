@@ -1,4 +1,4 @@
-// 1️⃣ Modo Claro/Oscuro
+// Modo Claro/Oscuro
 const botonModoOscuro = document.getElementById("modoOscuro");
 const body = document.body;
 
@@ -6,7 +6,7 @@ botonModoOscuro.addEventListener("click", () => {
     body.classList.toggle("dark-mode");
 });
 
-// 2️⃣ Validación del Formulario
+// Validación del Formulario
 document.getElementById("pedidoForm").addEventListener("submit", function (event) {
     let valido = true;
     let errores = [];
@@ -43,7 +43,7 @@ document.getElementById("pedidoForm").addEventListener("submit", function (event
     }
 });
 
-// 3️⃣ Contador de Caracteres en Instrucciones Adicionales
+// Contador de Caracteres en Instrucciones Adicionales
 const instrucciones = document.getElementById("instrucciones");
 const contador = document.getElementById("contador");
 
@@ -57,7 +57,7 @@ instrucciones.addEventListener("input", function () {
     }
 });
 
-// 4️⃣ Cálculo del Precio del Pedido
+// Cálculo del Precio del Pedido
 const precios = {
     "clasica": 5,
     "doble": 7,
@@ -83,7 +83,7 @@ document.querySelectorAll("input[name='extra']").forEach(extra => {
     extra.addEventListener("change", calcularTotal);
 });
 
-// 5️⃣ Efecto en el Botón "Enviar Pedido"
+// Efecto en el Botón "Enviar Pedido"
 const botonEnviar = document.getElementById("enviar");
 
 botonEnviar.addEventListener("mouseover", function () {
