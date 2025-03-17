@@ -1,5 +1,3 @@
-console.log("JavaScript cargado correctamente");
-/*
 // Modo Claro/Oscuro
 const botonModoOscuro = document.getElementById("modoOscuro");
 const body = document.body;
@@ -92,7 +90,6 @@ botonEnviar.addEventListener("mouseover", function () {
     botonEnviar.style.backgroundColor = "#ffcc00";
     botonEnviar.style.color = "#000";
 });
-*/
 
 botonEnviar.addEventListener("mouseout", function () {
     botonEnviar.style.backgroundColor = "#28a745";
