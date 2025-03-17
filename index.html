@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido de Hamburguesas</title>
+    <link rel="stylesheet" href="pr_burger.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Realiza tu Pedido 🍔</h1>
+        <img src="cheese-burger.png" alt="Hamburguesa" class="burger-img">
+        <form id="pedido-form">
+            <fieldset>
+                <legend>Datos del Cliente</legend>
+                <label>Nombre: <input type="text" id="nombre" required></label>
+                <label>Apellidos: <input type="text" id="apellidos"></label>
+                <label>Dirección: <input type="text" id="direccion" minlength="30" required></label>
+                <label>Teléfono: <input type="tel" id="telefono" pattern="[0-9]{9,}" required></label>
+                <label>Email: <input type="email" id="email" required></label>
+            </fieldset>
+            <fieldset>
+                <legend>Pedido de Hamburguesas</legend>
+                <label>Tipo:
+                    <select id="tipo">
+                        <option value="clasica">Clásica</option>
+                        <option value="doble">Doble</option>
+                        <option value="vegetariana">Vegetariana</option>
+                    </select>
+                </label>
+                <label>Extras (elige al menos 2):</label>
+                <div class="extras">
+                    <input type="checkbox" value="queso"> Queso
+                    <input type="checkbox" value="bacon"> Bacon
+                    <input type="checkbox" value="huevo"> Huevo
+                    <input type="checkbox" value="jalapenos"> Jalapeños
+                    <input type="checkbox" value="patatas"> Patatas
+                    <input type="checkbox" value="refresco_limon"> Refresco limón
+                    <input type="checkbox" value="refresco_naranja"> Refresco naranja
+                </div>
+                <label>Cantidad:
+                    <input type="number" id="cantidad" min="1" max="5" value="1">
+                </label>
+                <label>Método de Pago:
+                    <select id="pago">
+                        <option value="efectivo">Efectivo</option>
+                        <option value="tarjeta">Tarjeta</option>
+                        <option value="paypal">PayPal</option>
+                    </select>
+                </label>
+                <label>Instrucciones Adicionales:
+                    <textarea id="instrucciones" placeholder="Escribe tus preferencias..."></textarea>
+                </label>
+            </fieldset>
+            <button id="enviar">Enviar Pedido</button>
+        </form>
+    </div>
+    <script src="pr_burger.js"></script>
+</body>
+</html>
